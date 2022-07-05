@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+  <head>
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="icon" href="{{$globalsite_favicon}}" type="image/jpg"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>{{$globalsite_name}}</title>
+
+    <!-- Website info -->
+    <meta name="description" content="{{$globalsite_description}}>">
+    <meta name="author" content="{{$globalsite_author}}">
+    <meta property="og:image" content="{{$globalsite_favicon}}"/>
+    <meta property="og:title" content="{{$globalsite_name}}"/>
+    <meta property="og:description" content="{{$globalsite_description}}"/>
+
+    <!-- CSS  -->
+    <link href="{{$globalcssPath}}css1.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{$globalcssPath}}css2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!--  Scripts-->
+    <script src="{{$globaljsPath}}js1.js"></script>
+    <script src="{{$globaljsPath}}js2.js"></script>
+  </head>
+  <body>
+    {{$viewPrevious}}
+    <br>
+  </body>
+</html>
