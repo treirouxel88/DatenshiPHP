@@ -7,7 +7,7 @@
 use data variables : {{$dataVariable}} (replace "Variable" by the variable name)
 use global variables : {{$globalVariable}} (replace "Variable" by the variable name)
 render menu : {{$menuRender}} (edit function in sys/coreFunction.php)
-execute a function (soon) : {{$funFunction}} (replace "Function" by the function name)
+execute a function (soon) : {{$fun}} {{$endfun}}
 
 */
 
