@@ -20,6 +20,35 @@
     return $return;
   }
 
+  function generateTable($tableTemplate, $tableContent) {
+    $thead = "";
+    $tbody = "";
+    foreach ($tableTemplate as $v) {
+      $thead = $thead."<td><b>$v</b></td>";
+    }
+    foreach ($tableContent as $v) {
+      $tbody = $tbody."<tr>";
+      foreach ($v as $val) {
+        $tbody = $tbody."<td>$val</td>";
+      }
+      $tbody = $tbody."</tr>";
+    }
+    $table = "
+    <table>
+    <thead>
+      <tr>
+          $thead
+      </tr>
+    </thead>
+
+    <tbody>
+      $tbody
+    </tbody>
+    </table>
+    ";
+    return $table;
+  }
+
   //return bool en fonction des permissions, par défaut : true
   function checkPerms($perms) {
     //calculs mathématique
