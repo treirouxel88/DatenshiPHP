@@ -1,5 +1,7 @@
 <?php
-  // DatenshiPHP RSS lib
+// https://www.w3schools.com/xml/xml_rss.asp
+// https://www.w3schools.com/php/php_xml_simplexml_get.asp
+//https://www.w3schools.com/php/php_ajax_rss_reader.asp
  class rss {
 	var $feed;
 

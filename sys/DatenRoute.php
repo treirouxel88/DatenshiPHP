@@ -7,6 +7,7 @@ namespace datenshi;
  */
 class Page
 {
+  private static array $uri;
   private static int $routesCounter;
   private static array $routes = [];
 
@@ -36,17 +37,43 @@ class Page
 
   static function check(string $routeUri)
   {
-    // contructeur
-    if (isset(self::$routes[$routeUri])) {
-      return true;
+    $froute = explode("/",$routeUri)[0];
+    if (isset(self::$routes[$froute])) {
+      if (!empty(str_contains(self::$routes[$froute][1], "API"))) {
+        return true;
+      } else if (isset(self::$routes[$routeUri])) {
+        return true;
+      } else return false;
     } else {
       return false;
     }
   }
 
+  static function setUri(string $routeUri)
+  {
+    // setter
+    self::$uri = explode("/",$routeUri);
+  }
+
+  static function getUri()
+  {
+    // getter
+    return self::$uri;
+  }
+
   static function execute($routeUri) {
-    //if (checkPerms())
-    call_user_func(self::$routes[$routeUri][2]);
+    $froute = explode("/",$routeUri)[0];
+    if (str_contains(self::$routes[$froute][1], "LOGIN")) {
+      Auth::login();
+    }if (str_contains(self::$routes[$froute][1], "REDIR")) {
+      header('Location: '.self::$routes[$froute][2]);
+    } else if (str_contains(self::$routes[$froute][1], "REDIR_PERMA")) {
+      header("Status: 301 Moved Permanently", false, 301);
+      header('Location: '.self::$routes[$froute][2]);
+    } else {
+      call_user_func(self::$routes[$froute][2]);
+    }
+    //call_user_func(self::$routes[$froute][2]);
   }
 }
  ?>
